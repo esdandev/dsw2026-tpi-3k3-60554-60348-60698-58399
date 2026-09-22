@@ -1,9 +1,13 @@
+body{
+  font-family: sans-serif;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #093a65;
 }
 
 .login-container form {
@@ -14,6 +18,14 @@
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 @media screen and (min-width: 600px) {

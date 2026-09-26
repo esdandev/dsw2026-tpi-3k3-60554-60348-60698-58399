@@ -37,5 +37,10 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
-    console.log("Formulario válido");
+    const specialty = {
+        name: name,
+        description: description
+    };
+
+    console.log(specialty);
 });

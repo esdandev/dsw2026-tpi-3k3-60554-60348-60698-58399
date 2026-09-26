@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear Especialidad</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard_style.css">
+    <link rel="stylesheet" href="assets/css/specialties_style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+
+        <nav class="sidebar">
+            <div class="sidebar-brand">
+                <h2>Portal Admin</h2>
+                <p>Gestión Hospitalaria</p>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="dashboard.html">Panel Control</a>
+                </li>
+
+                <li>
+                    <a href="specialties.html">Especialidades</a>
+                </li>
+
+                <li>
+                    <a href="#">Médicos</a>
+                </li>
+
+                <li>
+                    <a href="#">Pacientes</a>
+                </li>
+
+                <li>
+                    <a href="#">Configuración</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="specialty-page">
+
+            <div class="breadcrumb">
+                <a href="specialties.html">Especialidades</a>
+                <span>›</span>
+                <span>Agregar Nueva Especialidad</span>
+            </div>
+
+            <section class="specialty-form-container">
+
+                <div class="specialty-form-header">
+                    <h1>Registrar Nueva Especialidad</h1>
+
+                    <p>
+                        Complete la información técnica y administrativa
+                        para dar de alta una especialidad médica.
+                    </p>
+                </div>
+
+                <form id="specialty-form">
+
+                    <div class="form-group">
+                        <label for="name">
+                            Nombre de la Especialidad
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Ej. Cardiología Intervencionista"
+                        >
+
+                        <p
+                            class="error-message"
+                            id="name-error"
+                        ></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">
+                            Descripción
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Detalle el alcance de la especialidad..."
+                        ></textarea>
+
+                        <p
+                            class="error-message"
+                            id="description-error"
+                        ></p>
+                    </div>
+
+                    <div class="form-actions">
+                        <a
+                            href="specialties.html"
+                            class="button-cancel"
+                        >
+                            Cancelar
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="button-primary"
+                        >
+                            Guardar Especialidad
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+</body>
+</html>

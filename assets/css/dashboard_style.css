@@ -75,6 +75,24 @@
   left: 0;
 }
 
+.badge-active {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.badge-inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
 @media screen and (min-width: 600px) {
   .dashboard-container {
     grid-template-columns: 200px 1fr;

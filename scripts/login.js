@@ -16,3 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.toggle-password');
+  const input = document.getElementById('password');
+  const icon = btn.querySelector('i');
+
+  btn.addEventListener('click', () => {
+    const visible = input.type === 'text';
+    input.type = visible ? 'password' : 'text';
+    icon.className = visible ? 'bi bi-eye' : 'bi bi-eye-slash';
+  });
+});

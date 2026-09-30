@@ -1,1 +1,0 @@
-# En esta carpeta van otros recursos, como imagenes o archivos svg , y el css.

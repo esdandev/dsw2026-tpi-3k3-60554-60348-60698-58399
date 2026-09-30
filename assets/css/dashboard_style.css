@@ -1,97 +1,155 @@
+/* ============================================================
+   dashboard_style.css — El panel (chrome compartido)
+   Header, sidebar, usuario y cerrar sesión, y el grid que los
+   contiene. No tiene nada específico de ningún módulo — esto es
+   lo que se ve igual en dashboard.html, specialties.html,
+   specialty.html y cualquier página nueva que tenga panel.
+   Depende de las variables definidas en style.css.
+   ============================================================ */
+
 .dashboard-container {
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: 
-    "header"
-    "main"
-    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "header" "main";
   height: 100dvh;
-}
-
-.dashboard-container nav {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 200px;
-  background-color: #f4f4f4;
-  left: -200px;
-}
-
-.dashboard-container nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dashboard-container nav ul li {
-  padding: 1rem;
-  border-bottom: 1px solid #ddd;
 }
 
 .dashboard-container header {
   grid-area: header;
   height: 50px;
-  background-color: #333;
-  color: white;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 700;
 }
 
-.dashboard-container header div {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.dashboard-container main {
-  grid-area: main;
-  padding: 1rem;
-  overflow-y: auto;
-}
-
-.dashboard-container footer {
-  grid-area: footer;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+.dashboard-container header .menu {
+  background: none;
+  border: 0;
+  color: var(--white);
+  font-size: 1.4rem;
 }
 
 .dashboard-container nav {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 200px;
-  background-color: #f4f4f4;
-  left: -200px;
-  transition: left 0.3s ease;
+  left: -260px;
+  width: 240px;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  transition: left 0.3s ease;
 }
 
-.dashboard-container nav.open {
-  left: 0;
+.dashboard-container nav.open { left: 0; }
+
+.brand {
+  padding: 1.5rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.brand strong { color: var(--navy); font-size: 1.05rem; }
+.brand small { color: var(--muted); font-size: 0.7rem; }
+
+.nav-links { list-style: none; margin: 1rem 0 0; padding: 0; }
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-left: 3px solid transparent;
+}
+.nav-links li.active a {
+  background: var(--white);
+  color: var(--navy);
+  border-left-color: var(--teal);
+}
+.nav-links li:not(.active) a:hover { background: #eef4fa; }
+
+.nav-bottom {
+  margin-top: auto;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.nav-bottom a, .nav-bottom #logout {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
 }
 
-@media screen and (min-width: 600px) {
+.user { display: flex; align-items: center; gap: 0.6rem; }
+.user strong { display: block; font-size: 0.75rem; }
+.user small { color: var(--muted); font-size: 0.65rem; }
+
+.avatar {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #a9c7e2;
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-container main {
+  grid-area: main;
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.dashboard-container main h1 {
+  margin: 0 0 0.25rem;
+  color: var(--navy);
+  font-size: 1.5rem;
+}
+
+.page-subtitle {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.modules { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+.module-card {
+  width: 280px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.module-card:hover { box-shadow: 0 4px 14px rgba(11, 50, 96, 0.08); }
+.module-card h2 { margin: 0.5rem 0; font-size: 1.05rem; color: var(--navy); }
+.module-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+
+@media screen and (min-width: 900px) {
   .dashboard-container {
-    grid-template-columns: 200px 1fr;
-    grid-template-areas: 
-      "header header"
-      "nav main"
-      "footer footer";
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "nav main";
   }
-
-  .dashboard-container nav {
-    grid-area: nav;
-    position: static;
-    left: 0;
-    height: auto;
-  }
-
-  .dashboard-container header div .menu {
-    display: none;
-  }
+  .dashboard-container header { display: none; }
+  .dashboard-container nav { grid-area: nav; position: static; width: auto; height: auto; }
+  .dashboard-container main { padding: 2rem 1.5rem; }
 }

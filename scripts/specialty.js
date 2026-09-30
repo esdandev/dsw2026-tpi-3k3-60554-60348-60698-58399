@@ -37,10 +37,7 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
-    const specialty = {
-        name: name,
-        description: description
-    };
+    addSpecialty(name, description);
 
-    console.log(specialty);
+    window.location.href = "specialties.html";
 });

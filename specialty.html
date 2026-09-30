@@ -80,14 +80,18 @@
             <div class="breadcrumb">
                 <a href="specialties.html">Especialidades</a>
                 <span>›</span>
-                <span>Agregar Nueva Especialidad</span>
+                <span id="breadcrumb-current">
+                    Agregar Nueva Especialidad
+                </span>
             </div>
 
             <section class="specialty-form-container">
 
                 <div class="specialty-form-header">
 
-                    <h1>Registrar Nueva Especialidad</h1>
+                    <h1 id="form-title">
+                    Registrar Nueva Especialidad
+                    </h1>
 
                     <p>
                         Complete la información técnica y administrativa
@@ -146,12 +150,13 @@
                             Cancelar
                         </a>
 
-                        <button
-                            type="submit"
-                            class="button-primary"
-                        >
-                            Guardar Especialidad
-                        </button>
+                       <button
+                        type="submit"
+                        class="button-primary"
+                        id="submit-button"
+                    >
+                        Guardar Especialidad
+                    </button>
 
                     </div>
 

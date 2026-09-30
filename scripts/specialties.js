@@ -15,6 +15,45 @@ function createCell(text) {
     return td;
 }
 
+function createActionsCell(specialty) {
+    const td = document.createElement('td');
+
+    const actions = document.createElement('div');
+    actions.className = 'table-actions';
+
+    const editButton = document.createElement('a');
+    editButton.href = `specialty.html?id=${specialty.id}`;
+    editButton.className = 'action-button edit';
+    editButton.textContent = 'Editar';
+
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.className = 'action-button delete';
+    deleteButton.textContent = 'Borrar';
+
+    deleteButton.addEventListener('click', () => {
+        const confirmed = confirm(
+            `¿Desea eliminar la especialidad "${specialty.name}"?`
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
+        deleteSpecialty(specialty.id);
+
+        const searchInput = document.getElementById('search-input');
+        filterByName(searchInput.value);
+    });
+
+    actions.appendChild(editButton);
+    actions.appendChild(deleteButton);
+
+    td.appendChild(actions);
+
+    return td;
+}
+
 /** Dibuja las filas de la tabla a partir de una lista de especialidades. */
 function renderSpecialties(list) {
     const tbody = document.getElementById('specialties-table-body');
@@ -23,7 +62,7 @@ function renderSpecialties(list) {
     if (list.length === 0) {
         const tr = document.createElement('tr');
         const td = createCell('No se encontraron especialidades.');
-        td.colSpan = 3;
+        td.colSpan = 4;
         tr.appendChild(td);
         tbody.appendChild(tr);
         return;
@@ -31,9 +70,16 @@ function renderSpecialties(list) {
 
     list.forEach(specialty => {
         const tr = document.createElement('tr');
+
         tr.appendChild(createCell(specialty.name));
         tr.appendChild(createCell(specialty.description));
-        tr.appendChild(createCell(specialty.active ? 'Activo' : 'Inactivo'));
+
+        const statusCell = document.createElement('td');
+        statusCell.appendChild(createStatusBadge(specialty.active));
+        tr.appendChild(statusCell);
+
+        tr.appendChild(createActionsCell(specialty));
+
         tbody.appendChild(tr);
     });
 }

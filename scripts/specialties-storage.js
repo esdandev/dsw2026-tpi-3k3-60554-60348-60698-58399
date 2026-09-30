@@ -58,6 +58,51 @@ function addSpecialty(name, description, active = true) {
 function createStatusBadge(active) {
     const badge = document.createElement('span');
     badge.textContent = active ? 'Activo' : 'Inactivo';
-    badge.className = active ? 'badge badge-active' : 'badge badge-inactive';
+    badge.className = active ? 'badge active' : 'badge inactive';
     return badge;
+}
+
+function getSpecialtyById(id) {
+    const specialties = getAllSpecialties();
+
+    return specialties.find(specialty =>
+        specialty.id === id && !specialty.deleted
+    ) ?? null;
+}
+
+function updateSpecialty(id, name, description) {
+    const specialties = getAllSpecialties();
+
+    const specialtyIndex = specialties.findIndex(
+        specialty => specialty.id === id && !specialty.deleted
+    );
+
+    if (specialtyIndex === -1) {
+        return null;
+    }
+
+    specialties[specialtyIndex].name = name;
+    specialties[specialtyIndex].description = description;
+
+    saveSpecialties(specialties);
+
+    return specialties[specialtyIndex];
+}
+
+function deleteSpecialty(id) {
+    const specialties = getAllSpecialties();
+
+    const specialtyIndex = specialties.findIndex(
+        specialty => specialty.id === id && !specialty.deleted
+    );
+
+    if (specialtyIndex === -1) {
+        return false;
+    }
+
+    specialties[specialtyIndex].deleted = true;
+
+    saveSpecialties(specialties);
+
+    return true;
 }

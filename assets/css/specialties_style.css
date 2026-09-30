@@ -81,3 +81,58 @@
 }
 .badge.active { background: #d9f5ee; color: var(--teal); }
 .badge.inactive { background: #e6ebf1; color: var(--muted); }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.page-header h1 {
+  margin-top: 0;
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  background: var(--white);
+  font: inherit;
+  font-size: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.action-button.edit {
+  color: var(--navy);
+}
+
+.action-button.edit:hover {
+  background: #eef4fa;
+}
+
+.action-button.delete {
+  color: var(--danger);
+}
+
+.action-button.delete:hover {
+  background: var(--danger-bg);
+}
+
+@media (max-width: 600px) {
+  .page-header {
+    flex-direction: column;
+  }
+
+  .table-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,5 +1,28 @@
 const form = document.getElementById("specialty-form");
 
+const formTitle = document.getElementById("form-title");
+const breadcrumbCurrent = document.getElementById("breadcrumb-current");
+const submitButton = document.getElementById("submit-button");
+
+const params = new URLSearchParams(window.location.search);
+const specialtyId = params.get("id");
+
+if (specialtyId !== null) {
+    const specialty = getSpecialtyById(specialtyId);
+
+    if (specialty === null) {
+        alert("La especialidad no existe.");
+        window.location.href = "specialties.html";
+    } else {
+        nameInput.value = specialty.name;
+        descriptionInput.value = specialty.description;
+
+        formTitle.textContent = "Editar Especialidad";
+        breadcrumbCurrent.textContent = "Editar Especialidad";
+        submitButton.textContent = "Guardar Cambios";
+    }
+}
+
 const nameInput = document.getElementById("name");
 const descriptionInput = document.getElementById("description");
 
@@ -37,7 +60,12 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
-    addSpecialty(name, description);
 
-    window.location.href = "specialties.html";
+        if (specialtyId === null) {
+            addSpecialty(name, description);
+        } else {
+            updateSpecialty(specialtyId, name, description);
+        }
+
+        window.location.href = "specialties.html";
 });

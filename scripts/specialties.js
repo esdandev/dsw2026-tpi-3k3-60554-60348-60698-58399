@@ -1,33 +1,3 @@
-const STORAGE_KEY = 'specialties';
-
-// Datos de ejemplo: solo se usan la primera vez, si localStorage está vacío.
-const SEED_SPECIALTIES = [
-    { id: crypto.randomUUID(), name: 'Cardiología', description: 'Estudio y tratamiento de trastornos del corazón y del sistema circulatorio.', active: true, deleted: false },
-    { id: crypto.randomUUID(), name: 'Neurología', description: 'Diagnóstico y tratamiento de todas las categorías de afecciones cerebrales.', active: true, deleted: false },
-    { id: crypto.randomUUID(), name: 'Dermatología', description: 'Atención integral de enfermedades de la piel, uñas y cabello.', active: false, deleted: false },
-    { id: crypto.randomUUID(), name: 'Pediatría', description: 'Cuidado médico de lactantes, niños y adolescentes.', active: true, deleted: false },
-];
-
-/**
- * Devuelve las especialidades guardadas en localStorage (sin las eliminadas).
- * Si no hay nada guardado todavía, carga los datos de ejemplo.
- */
-function getSpecialties() {
-    try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-
-        if (raw === null) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_SPECIALTIES));
-            return SEED_SPECIALTIES.filter(s => !s.deleted);
-        }
-
-        const list = JSON.parse(raw);
-        return Array.isArray(list) ? list.filter(s => !s.deleted) : [];
-    } catch (error) {
-        console.error('No se pudieron leer las especialidades:', error);
-        return [];
-    }
-}
 
 /** Minúsculas y sin tildes, para que "cardio" encuentre "Cardiología" y "Neurologia" a "Neurología". */
 function normalize(text) {

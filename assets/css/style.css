@@ -1,11 +1,83 @@
-body {
-  margin: 0;
-  font-size: 2rem;
-  height: 100dvh;
+
+:root {
+  --navy: #0b3260;
+  --navy-dark: #082548;
+  --teal: #0f8f7a;
+  --text: #1f2d3d;
+  --muted: #5b6b7c;
+  --border: #cfdbe8;
+  --bg: #f3f8fe;
+  --sidebar-bg: #f8fafc;
+  --securetext: #abc1d7;
+  --white: #fff;
+  --danger: #b42318;
+  --danger-bg: #fef3f2;
+  --success: #067647;
+  --success-bg: #ecfdf3;
+  --font: "Public Sans", "Segoe UI", system-ui, sans-serif;
 }
 
-@media screen and (min-width: 600px) {
-  body {
-    font-size: 1rem;
-  }
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
 }
+
+button { font: inherit; cursor: pointer; }
+a { color: inherit; }
+
+.btn-primary, .button-primary {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.btn-primary:hover, .button-primary:hover { background: var(--navy-dark); }
+
+.btn-secondary, .btn-cancel, .button-cancel {
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-secondary:hover, .btn-cancel:hover, .button-cancel:hover { background: #eef4fa; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+.form-group label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+.form-group input,
+.form-group textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  font: inherit;
+  font-size: 0.85rem;
+  background: var(--white);
+  color: var(--text);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.error-message { color: var(--danger); font-size: 0.78rem; min-height: 1em; }
+
+.form-actions { display: flex; gap: 0.75rem; margin-top: 1rem; }

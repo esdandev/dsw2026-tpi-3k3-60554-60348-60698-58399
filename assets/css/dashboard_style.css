@@ -1,38 +1,21 @@
-:root {
-  --navy: #0b3260;
-  --teal: #0f8f7a;
-  --text: #1f2d3d;
-  --muted: #5b6b7c;
-  --border: #cfdbe8;
-  --bg: #f3f8fe;
-  --sidebar-bg: #f8fafc;
-  --white: #fff;
-}
+/* ============================================================
+   dashboard_style.css — El panel (chrome compartido)
+   Header, sidebar, usuario y cerrar sesión, y el grid que los
+   contiene. No tiene nada específico de ningún módulo — esto es
+   lo que se ve igual en dashboard.html, specialties.html,
+   specialty.html y cualquier página nueva que tenga panel.
+   Depende de las variables definidas en style.css.
+   ============================================================ */
 
-* { box-sizing: border-box; }
-
-body{
-  margin: 0;
-  font-family: "Public Sans", "Segoe UI", system-ui, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-}
-
-button{ 
-  font: inherit; cursor: pointer; 
-}
-
-.dashboard-container{
+.dashboard-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "header"
-    "main";
+  grid-template-areas: "header" "main";
   height: 100dvh;
 }
 
-.dashboard-container header{
+.dashboard-container header {
   grid-area: header;
   height: 50px;
   padding: 0 1rem;
@@ -44,14 +27,14 @@ button{
   font-weight: 700;
 }
 
-.dashboard-container header .menu{
+.dashboard-container header .menu {
   background: none;
   border: 0;
   color: var(--white);
   font-size: 1.4rem;
 }
 
-.dashboard-container nav{
+.dashboard-container nav {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -65,30 +48,19 @@ button{
   transition: left 0.3s ease;
 }
 
-.dashboard-container nav.open{
-   left: 0; 
-}
+.dashboard-container nav.open { left: 0; }
 
-.brand{
+.brand {
   padding: 1.5rem 1.25rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-.brand strong{ 
-  color: var(--navy); font-size: 1.05rem; 
-}
+.brand strong { color: var(--navy); font-size: 1.05rem; }
+.brand small { color: var(--muted); font-size: 0.7rem; }
 
-.brand small{ 
-  color: var(--muted); font-size: 0.7rem; 
-}
-
-.nav-links{
-  list-style: none;
-  margin: 1rem 0 0;
-  padding: 0;
-}
-.nav-links li a{
+.nav-links { list-style: none; margin: 1rem 0 0; padding: 0; }
+.nav-links li a {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -103,9 +75,7 @@ button{
   color: var(--navy);
   border-left-color: var(--teal);
 }
-.nav-links li:not(.active) a:hover{
-   background: #eef4fa; 
-}
+.nav-links li:not(.active) a:hover { background: #eef4fa; }
 
 .nav-bottom {
   margin-top: auto;
@@ -125,17 +95,11 @@ button{
   font-size: 0.85rem;
 }
 
-.user{
-   display: flex; align-items: center; gap: 0.6rem; 
-}
-.user strong{ 
-  display: block; font-size: 0.75rem; 
-}
-.user small{
-   color: var(--muted); font-size: 0.65rem; 
-}
+.user { display: flex; align-items: center; gap: 0.6rem; }
+.user strong { display: block; font-size: 0.75rem; }
+.user small { color: var(--muted); font-size: 0.65rem; }
 
-.avatar{
+.avatar {
   flex: none;
   width: 30px;
   height: 30px;
@@ -155,26 +119,37 @@ button{
   overflow-y: auto;
 }
 
-@media screen and (min-width: 900px) {
+.dashboard-container main h1 {
+  margin: 0 0 0.25rem;
+  color: var(--navy);
+  font-size: 1.5rem;
+}
 
+.page-subtitle {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.modules { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+.module-card {
+  width: 280px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.module-card:hover { box-shadow: 0 4px 14px rgba(11, 50, 96, 0.08); }
+.module-card h2 { margin: 0.5rem 0; font-size: 1.05rem; color: var(--navy); }
+.module-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+
+@media screen and (min-width: 900px) {
   .dashboard-container {
     grid-template-columns: 240px 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "nav main";
   }
-
-  .dashboard-container header{
-     display: none; 
-  }
-
-  .dashboard-container nav{
-    grid-area: nav;
-    position: static;
-    width: auto;
-    height: auto;
-  }
-
-  .dashboard-container main{ 
-    padding: 2rem 1.5rem; 
-  }
+  .dashboard-container header { display: none; }
+  .dashboard-container nav { grid-area: nav; position: static; width: auto; height: auto; }
+  .dashboard-container main { padding: 2rem 1.5rem; }
 }

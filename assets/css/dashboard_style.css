@@ -156,6 +156,7 @@ button{
 }
 
 @media screen and (min-width: 900px) {
+
   .dashboard-container {
     grid-template-columns: 240px 1fr;
     grid-template-rows: 1fr;

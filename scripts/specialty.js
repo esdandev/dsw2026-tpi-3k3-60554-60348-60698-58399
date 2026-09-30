@@ -1,5 +1,11 @@
 const form = document.getElementById("specialty-form");
 
+const nameInput = document.getElementById("name");
+const descriptionInput = document.getElementById("description");
+
+const nameError = document.getElementById("name-error");
+const descriptionError = document.getElementById("description-error");
+
 const formTitle = document.getElementById("form-title");
 const breadcrumbCurrent = document.getElementById("breadcrumb-current");
 const submitButton = document.getElementById("submit-button");
@@ -23,11 +29,6 @@ if (specialtyId !== null) {
     }
 }
 
-const nameInput = document.getElementById("name");
-const descriptionInput = document.getElementById("description");
-
-const nameError = document.getElementById("name-error");
-const descriptionError = document.getElementById("description-error");
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();

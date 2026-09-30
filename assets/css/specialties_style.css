@@ -1,19 +1,4 @@
-/* Estilos propios de la página de Especialidades.
-   Usa las variables definidas en dashboard_style.css (:root). */
 
-main h1 {
-  margin: 0 0 0.25rem;
-  color: var(--navy);
-  font-size: 1.5rem;
-}
-
-.page-subtitle {
-  margin: 0 0 1.25rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-/* Buscador */
 .search-box {
   position: relative;
   max-width: 360px;
@@ -76,18 +61,9 @@ main h1 {
   text-transform: uppercase;
 }
 
-.data-table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.data-table tbody tr:hover {
-  background: #f6fafe;
-}
-
-.data-table td:first-child {
-  font-weight: 600;
-  color: var(--navy);
-}
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table tbody tr:hover { background: #f6fafe; }
+.data-table td:first-child { font-weight: 600; color: var(--navy); }
 
 .data-table .empty-row {
   text-align: center;
@@ -103,13 +79,5 @@ main h1 {
   font-size: 0.7rem;
   font-weight: 700;
 }
-
-.badge.active {
-  background: #d9f5ee;
-  color: var(--teal);
-}
-
-.badge.inactive {
-  background: #e6ebf1;
-  color: var(--muted);
-}
+.badge.active { background: #d9f5ee; color: var(--teal); }
+.badge.inactive { background: #e6ebf1; color: var(--muted); }
